@@ -1,0 +1,47 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "expressjs, passport-jwt, mongodb"
+  ],
+  "author": "Manuel Eguiluz <eguiluz.manuel@gmail.com>",
+  "license": "ISC",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index",
+    "start:dev": "DEBUG=app:* nodemon src/index",
+    "start:debug": "DEBUG=express:*,app:* nodemon --inspect src/index",
+    "start:ui-sync": "browser-sync start --proxy=localhost:3000 --port=3001 --files='public/**/*.css, **/*.pug, public/**/*.js' --ignore='node_modules' --reload-delay 10 --no-ui --no-notify",
+    "build:ui": "NODE_ENV=production cd public/assets && cleancss -o main.min.css main.css",
+    "test": "mocha --exit",
+    "test:coverage": "nyc npm test && nyc report --reporter=html"
+  },
+  "dependencies": {
+    "@hapi/boom": "^9.1.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "debug": "^4.1.0",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "helmet": "^3.23.3",
+    "joi": "^14.1.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongodb": "^3.1.10",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-jwt": "^4.0.0",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.10",
+    "chalk": "^2.4.1",
+    "clean-css-cli": "^4.2.1",
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
+    "proxyquire": "^2.1.0",
+    "sinon": "^7.1.1",
+    "supertest": "^3.3.0"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [{ "src": "src/index.js", "use": "@now/node-server" }],
+  "routes": [{ "src": "/(.*)", "dest": "/src/index.js" }],
+  "env": {
+    "DB_USER": "@express-ecommerce1-db-user",
+    "DB_PASSWORD": "@express-ecommerce1-db-password",
+    "DB_HOST": "@express-ecommerce1-db-host",
+    "DB_NAME": "@express-ecommerce1-db-name",
+    "AUTH_ADMIN_USERNAME": "@auth-admin-username",
+    "AUTH_ADMIN_PASSWORD": "@auth-admin-password",
+    "AUTH_ADMIN_EMAIL": "@auth-admin-email",
+    "AUTH_JWT_SECRET": "@auth-jwt-secret"
+  }
+}

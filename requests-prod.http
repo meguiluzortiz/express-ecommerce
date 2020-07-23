@@ -1,0 +1,53 @@
+@host = https://express-ecommerce.vercel.app/api
+@contentType = application/json
+
+### Auth API
+
+### TOKEN
+# @name token
+POST {{host}}/auth/token
+X-Requested-With: XMLHttpRequest
+Content-Type: @contentType
+Authorization: Basic admin admin
+
+
+@authToken = {{token.response.body.access_token}}
+
+### Products API
+
+### LIST
+GET {{host}}/products
+X-Requested-With: XMLHttpRequest
+Content-Type: {{contentType}}
+
+### GET
+GET {{host}}/products/5f19a64ca1412df2a36c9a03
+X-Requested-With: XMLHttpRequest
+Content-Type: {{contentType}}
+
+### POST
+POST {{host}}/products
+X-Requested-With: XMLHttpRequest
+Content-Type: {{contentType}}
+
+{
+    "name": "Black bike",
+    "price": 300,
+    "image": "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=53d820e6622fadd53b8638d60f468ccd&auto=format&fit=crop&w=800&q=60"
+}
+
+### PUT
+PUT {{host}}/products/1
+X-Requested-With: XMLHttpRequest
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+    "name": "TestName"
+}
+
+### DELETE
+DELETE {{host}}/products/5f15060d6ca5766bd82d778d
+X-Requested-With: XMLHttpRequest
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
